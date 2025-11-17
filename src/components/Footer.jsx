@@ -1,30 +1,30 @@
 import React from 'react'
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const Footer = () => {
   const footerLinks = {
     company: [
-      { name: 'About', href: '#' },
+      { name: 'About', href: '#/about' },
       { name: 'Terms of Use', href: '#' },
       { name: 'Privacy Policy', href: '#' },
-      { name: 'How it Works', href: '#' },
-      { name: 'Contact Us', href: '#' },
+      { name: 'Our Services', href: '#/services' },
+      { name: 'Contact Us', href: '#/contact' },
     ],
     getHelp: [
-      { name: 'Support Carrer', href: '#' },
-      { name: '24h Service', href: '#' },
-      { name: 'Quick Chat', href: '#' },
+      { name: 'Support Center', href: '#/contact' },
+      { name: '24h Service', href: '#/contact' },
+      { name: 'Quick Chat', href: '#/contact' },
     ],
     support: [
       { name: 'FAQ', href: '#' },
       { name: 'Policy', href: '#' },
-      { name: 'Business', href: '#' },
+      { name: 'Testimonials', href: '#/testimonials' },
     ],
     contact: [
-      { name: 'WhatsApp', href: '#' },
-      { name: 'Support 24', href: '#' },
+      { name: 'Contact Us', href: '#/contact' },
+      { name: 'Support 24', href: '#/contact' },
     ],
   }
 
@@ -47,17 +47,17 @@ const Footer = () => {
           >
             <motion.div 
               variants={fadeIn('down', 0.5)}
-              className="flex items-center gap-1 mb-6"
+              className="flex items-center gap-2 mb-6"
             >
               <div className="w-4 h-4 bg-blue-600 rounded-full opacity-75"></div>
               <div className="w-4 h-4 bg-red-500 rounded-full -ml-2"></div>
-              <span className="text-xl font-medium ml-1">The Next Design</span>
+              <span className="text-xl font-medium ml-1">PrimeScale</span>
             </motion.div>
             <motion.p 
               variants={fadeIn('up', 0.6)}
               className="text-gray-600 mb-6"
             >
-              The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times.
+              A digital innovation platform that empowers businesses to build, scale, and optimize their online presence with cutting-edge technology and design-first solutions.
             </motion.p>
             <motion.div 
               variants={fadeIn('up', 0.7)}
@@ -65,21 +65,14 @@ const Footer = () => {
             >
               <motion.a 
                 whileHover={{ scale: 1.1 }}
-                href="#" 
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-colors"
+                href="https://github.com/Samridhi012" 
+                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors"
               >
-                <FaFacebookF className="w-5 h-5" />
+                <FaGithub className="w-5 h-5" />
               </motion.a>
               <motion.a 
                 whileHover={{ scale: 1.1 }}
-                href="#" 
-                className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-400 hover:text-white transition-colors"
-              >
-                <FaTwitter className="w-5 h-5" />
-              </motion.a>
-              <motion.a 
-                whileHover={{ scale: 1.1 }}
-                href="#" 
+                href="https://www.linkedin.com/in/samridhi-sharma-715561263/" 
                 className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-blue-700 hover:text-white transition-colors"
               >
                 <FaLinkedinIn className="w-5 h-5" />
@@ -142,13 +135,12 @@ const Footer = () => {
               variants={fadeIn('right', 1.0)}
               className="text-gray-600 text-sm"
             >
-              Copyright © {new Date().getFullYear()} codetutorbd.com
+              Copyright © {new Date().getFullYear()}
             </motion.p>
             <motion.p 
               variants={fadeIn('left', 1.0)}
               className="text-gray-600 text-sm"
             >
-              Created by Md Al Mamun
             </motion.p>
           </motion.div>
         </motion.div>

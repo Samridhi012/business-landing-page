@@ -9,46 +9,75 @@ import { fadeIn, textVariant } from "../utils/motion";
 const testimonials = [
   {
     id: 1,
-    name: "Robin Ayala Doe", 
+    name: "Robin Ayala Doe",
+    role: "Product Manager",
+    company: "Brightline Inc.",
+    project: "Marketing Dashboard",
+    date: "Mar 2024",
+    rating: 5,
     image: "https://randomuser.me/api/portraits/men/77.jpg",
-    text: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast.",
+    text: "The team delivered an elegant, high-performance dashboard that our marketing team uses daily. Their attention to accessibility and performance cut load times in half and improved adoption across teams.",
   },
   {
     id: 2,
-    name: "John De marli",
-    image: "https://randomuser.me/api/portraits/women/90.jpg", 
-    text: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.",
+    name: "John De Marli",
+    role: "Founder",
+    company: "Vokalia Labs",
+    project: "Landing + Onboarding",
+    date: "Aug 2023",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/women/90.jpg",
+    text: "They rebuilt our onboarding flow and improved conversions by over 30%. The design and implementation were both thoughtful and pragmatic.",
   },
   {
     id: 3,
     name: "Rowhan Smith",
+    role: "Head of Engineering",
+    company: "Consonantia",
+    project: "Refactor & CI",
+    date: "Jan 2022",
+    rating: 4,
     image: "https://randomuser.me/api/portraits/men/90.jpg",
-    text: "When she reached the first hills of the Mountains, she had a last view back on the of her hometown Bookmarksgrove, the headline.",
+    text: "They helped us refactor legacy front-end code and introduced an automated CI pipeline. The result: fewer regressions and faster releases.",
   },
   {
     id: 4,
     name: "Sarah Johnson",
+    role: "Customer Success Manager",
+    company: "Bookmarksgrove",
+    project: "Support Portal",
+    date: "Nov 2021",
+    rating: 5,
     image: "https://randomuser.me/api/portraits/women/45.jpg",
-    text: "The customer service has been exceptional. They went above and beyond to help me solve my problems and were always available when I needed them.",
+    text: "Their customer-first approach meant we could iterate quickly. They were available, responsive and delivered quality work on time.",
   },
   {
     id: 5,
     name: "Michael Chen",
+    role: "Operations Lead",
+    company: "Coastline Corp.",
+    project: "Internal Tools",
+    date: "May 2024",
+    rating: 5,
     image: "https://randomuser.me/api/portraits/men/32.jpg",
-    text: "I've been using their services for over a year now and couldn't be happier. The platform is intuitive and the features are exactly what I needed for my business.",
+    text: "We've been using their services for over a year. The platform is intuitive and matches our workflow precisely.",
   },
   {
     id: 6,
     name: "Emma Wilson",
+    role: "Product Designer",
+    company: "Venture UX",
+    project: "Design System",
+    date: "Feb 2025",
+    rating: 5,
     image: "https://randomuser.me/api/portraits/women/28.jpg",
-    text: "What impressed me most was how quickly they responded to my requests. The team is professional, knowledgeable, and truly cares about their customers' success.",
+    text: "They helped us create a consistent design system that reduced design-production gaps and sped up development.",
   },
-
 ];
 
 const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="py-16 px-4 max-w-7xl mx-auto">
+    <section id="testimonials" className="py-25 px-4 max-w-7xl mx-auto">
       <motion.div 
         variants={fadeIn('up', 0.3)}
         className="text-center mb-12"
@@ -95,11 +124,11 @@ const TestimonialsSection = () => {
             <SwiperSlide key={testimonial.id} className='h-full md:py-12 py-4'>
               <motion.div 
                 variants={fadeIn('up', 0.3 * (index + 1))}
-                className="text-center bg-white p-4 rounded-lg shadow-md h-full flex flex-col"
+                className="text-left bg-white p-6 rounded-lg shadow-md h-full flex flex-col"
               >
                 <motion.div 
                   variants={fadeIn('down', 0.4 * (index + 1))}
-                  className="w-24 h-24 mx-auto mb-4"
+                  className="w-24 h-24 mx-auto md:mx-0 mb-4"
                 >
                   <motion.img
                     variants={fadeIn('up', 0.5 * (index + 1))}
@@ -108,32 +137,35 @@ const TestimonialsSection = () => {
                     className="w-full h-full object-cover rounded-full"
                   />
                 </motion.div>
-                <motion.div 
-                  variants={fadeIn('up', 0.4 * (index + 1))}
-                  className="flex justify-center mb-2"
-                >
-                  {[...Array(5)].map((_, starIndex) => (
-                    <motion.span 
-                      key={starIndex} 
-                      variants={fadeIn('up', 0.1 * starIndex)}
-                      className="text-blue-600"
-                    >
-                      ★
-                    </motion.span>
-                  ))}
-                </motion.div>
-                <motion.h3 
-                  variants={textVariant(0.3)}
-                  className="font-semibold text-xl mb-3"
-                >
-                  {testimonial.name}
-                </motion.h3>
+                <div className="mb-3">
+                  <motion.h3 
+                    variants={textVariant(0.3)}
+                    className="font-semibold text-lg md:text-xl"
+                  >
+                    {testimonial.name}
+                  </motion.h3>
+                  <motion.div variants={fadeIn('up', 0.4 * (index + 1))} className="text-sm text-gray-500">
+                    {testimonial.role} — <span className="font-medium">{testimonial.company}</span>
+                    <span className="mx-2">•</span>
+                    <span className="text-xs">{testimonial.date}</span>
+                  </motion.div>
+                </div>
+
                 <motion.p 
                   variants={fadeIn('up', 0.6 * (index + 1))}
-                  className="text-gray-600"
+                  className="text-gray-600 mb-4 flex-1"
                 >
                   {testimonial.text}
                 </motion.p>
+
+                <div className="flex items-center justify-between mt-4">
+                  <div className="flex items-center gap-1 text-yellow-500">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span key={i} className="text-lg">{i < testimonial.rating ? '★' : '☆'}</span>
+                    ))}
+                  </div>
+                  <div className="text-sm text-indigo-600 font-medium">{testimonial.project}</div>
+                </div>
               </motion.div>
             </SwiperSlide>
           ))}

@@ -1,18 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { motion } from "framer-motion";
 import { fadeIn} from "../utils/motion";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeLink, setActiveLink] = useState('#home')
+  const initial = window.location.hash || '#/'
+  const [activeLink, setActiveLink] = useState(initial)
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About Us" },
-    { href: "#services", label: "Our Service" },
-    { href: "#testimonials", label: "Testimonials" },
+    { href: "#/", label: "Home" },
+    { href: "#/about", label: "About Us" },
+    { href: "#/services", label: "Our Service" },
+    { href: "#/testimonials", label: "Testimonials" },
+    { href: "#/contact", label: "Contact" },
   ]
+
+  useEffect(() => {
+    const onHashChange = () => setActiveLink(window.location.hash || '#/')
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
 
   return (
     <motion.nav 
@@ -26,16 +34,19 @@ const Navbar = () => {
         {/* Logo */}
         <motion.div 
           variants={fadeIn('right', 0.3)}
-          className="flex items-center gap-1 cursor-pointer"
+          className="flex items-center gap-2 cursor-pointer"
         >
-          <motion.div 
-            whileHover={{ scale: 1.1 }}
-            className="w-4 h-4 bg-blue-600 rounded-full opacity-75 hover:opacity-100 transition-opacity"
-          ></motion.div>
-          <motion.div 
-            whileHover={{ scale: 1.1 }}
-            className="w-4 h-4 bg-red-500 rounded-full -ml-2 hover:opacity-75 transition-opacity"
-          ></motion.div>
+          <div className="flex items-center gap-1">
+            <motion.div 
+              whileHover={{ scale: 1.1 }}
+              className="w-4 h-4 bg-blue-600 rounded-full opacity-75 hover:opacity-100 transition-opacity"
+            ></motion.div>
+            <motion.div 
+              whileHover={{ scale: 1.1 }}
+              className="w-4 h-4 bg-red-500 rounded-full -ml-2 hover:opacity-75 transition-opacity"
+            ></motion.div>
+          </div>
+          <span className="font-bold text-lg text-gray-900">PrimeScale</span>
         </motion.div>
         {/* Mobile Menu Button */}
         <motion.button 
@@ -76,7 +87,7 @@ const Navbar = () => {
           whileTap={{ scale: 0.95 }}
           className="hidden md:block bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100"
         >
-          <a href="#newsletter">Get in touch</a>
+          <a href="#/contact">Get in touch</a>
         </motion.button>
       </div>
 

@@ -9,3 +9,14 @@ html {
 .section-container {
   @apply  px-4 sm:px-6 lg:px-8 py-16 container mx-auto;
 }
+
+/* Ensure anchored sections don't get hidden under the fixed navbar */
+section {
+  scroll-margin-top: 6rem; /* desktop default */
+}
+
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 4rem; /* mobile navbar smaller */
+  }
+}

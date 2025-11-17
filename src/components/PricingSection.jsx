@@ -110,6 +110,7 @@ const PricingSection = () => {
               variants={fadeIn('up', 1.3)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              href="#/contact"
               className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
             >
               Get Started

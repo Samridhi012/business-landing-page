@@ -38,7 +38,7 @@ const ServicesSection = () => {
     <section id="services" className="py-20 container mx-auto px-4 sm:px-6 lg:px-8">
      <motion.div 
       variants={fadeIn('up', 0.3)}
-      className='flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-24'
+      className='flex flex-col md:flex-row items-center justify-between gap-1 lg:gap-24'
      >
        {/* Header */}
        <motion.div 
@@ -122,7 +122,7 @@ const ServicesSection = () => {
             </motion.p>
             <motion.a 
               variants={fadeIn('up', 0.6 * (index + 1))}
-              href={service.link}
+              href="#"
               className="text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
             >
               LEARN MORE
